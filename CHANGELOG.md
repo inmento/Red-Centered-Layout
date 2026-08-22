@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.2 — 2026-08-22
+
+This update adds **Pokémon Yellow** compatibility. The same presentation-only camera adjustment now centers Yellow’s standard overworld player sprite in every active viewport, without changing maps, coordinates, movement, collision, save data, or gameplay.
+
+Yellow’s fixed-Pikachu title is intentionally left native. Unlike Red, its normal title flow has no visible version ribbon to recenter. The existing Red title-caption correction remains unchanged, and Blue, Gold, and Silver remain outside the mod’s scope.
+
+The regression suite now verifies camera centering in Red and Yellow, preservation of Yellow’s native title composition, Red ribbon behavior, Blue exclusion, and safe hot reload.
+
 ## 0.1.1 — 2026-08-21
 
 This hotfix corrects the Red Version title caption’s final visual alignment. The initial continuous ribbon was geometrically centered, but the original glyphs have asymmetric blank tile space and still appeared slightly left of center. The recomposed ribbon now uses a four-pixel transparent left pad in a 68×8 canvas, moving the visible caption two Game Boy pixels right while retaining the native title animation and original source fragments.

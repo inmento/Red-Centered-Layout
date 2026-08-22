@@ -1,17 +1,20 @@
--- Red Centered Layout
+-- Red & Yellow Centered Layout
 --
--- A Red-only presentation adjustment. It centers the stock Red Version title
--- caption and the standard overworld player sprite without changing save data,
--- map coordinates, collision, or movement state.
+-- A presentation adjustment for Red and Yellow. It centers the standard
+-- overworld player sprite without changing save data, map coordinates,
+-- collision, or movement state. Red's separate version ribbon also receives
+-- the title correction; Yellow has a distinct fixed-Pikachu title with no
+-- displayed version ribbon and is deliberately left title-native.
 
 return function(mod)
   local GameVersion = require("src.core.GameVersion")
-  if GameVersion.get() ~= "red" then return end
+  local version = GameVersion.get()
+  if version ~= "red" and version ~= "yellow" then return end
 
   local Camera = require("src.render.Camera")
   local TitleState = require("src.ui.TitleState")
 
-  local marker = "_redCenteredLayout"
+  local marker = "_redYellowCenteredLayout"
   if Camera[marker] or TitleState[marker] then return end
 
   local function composeRedRibbon(source)
@@ -76,6 +79,6 @@ return function(mod)
   TitleState[marker] = true
 
   if mod.log and type(mod.log.info) == "function" then
-    mod.log:info("Red Centered Layout active.")
+    mod.log:info("Red & Yellow Centered Layout active for " .. tostring(version) .. ".")
   end
 end

@@ -116,6 +116,17 @@ expect(unpatched.x, 96, "Blue camera remains native")
 expect(unpatched.y, 32, "Blue camera vertical placement remains native")
 expect(BlueTitle.new({}, { version = source }).version, source, "Blue title state remains native")
 
+local yellowG = makeGraphics()
+local YellowCamera, YellowTitle = loadMod("yellow", yellowG)
+local yellowCamera = {}
+YellowCamera.follow(yellowCamera, 160, 96, 160, 144)
+expect(yellowCamera.x, 88, "Yellow camera shifts the viewport left by eight pixels")
+expect(yellowCamera.y, 28, "Yellow camera shifts the viewport up by four pixels")
+expect(160 - yellowCamera.x + 8, 80, "Yellow player sprite center is horizontally centered")
+expect(96 - yellowCamera.y - 4 + 8, 72, "Yellow player sprite center is vertically centered")
+expect(YellowTitle.new({}, { version = source, yellow = true }).version, source,
+  "Yellow's fixed-Pikachu title keeps its native no-ribbon layout")
+
 local noCanvasG = makeGraphics({ noCanvas = true })
 local _, NoCanvasTitle = loadMod("red", noCanvasG)
 expect(NoCanvasTitle.new({}, { version = source }).version, source,
