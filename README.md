@@ -12,7 +12,7 @@
 
 ## Visual changes
 
-The original Red title code draws the two parts of the `Red Version` caption 8 pixels to the right of the 160-pixel Game Boy canvas center. This mod recomposes those original fragments into a transient 64×8 in-memory ribbon, preserving their source pixels and gap while allowing the native title renderer to place the full caption at the true center.
+The original Red title code draws the two parts of the `Red Version` caption 8 pixels to the right of the 160-pixel Game Boy canvas center. This mod recomposes those original fragments into a transient 68×8 in-memory ribbon with a small transparent alignment pad, preserving their source pixels and gap while placing the visible caption at the true center through the native title renderer.
 
 The normal Red overworld camera intentionally mimics the original framing: the standard 16×16 player sprite sits 8 pixels left and 4 pixels above the geometric viewport center. This mod adjusts only the camera view origin so the sprite’s visual center is centered. Player coordinates, maps, collision, movement, scripts, and saves remain unchanged.
 

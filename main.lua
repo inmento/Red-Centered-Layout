@@ -25,7 +25,10 @@ return function(mod)
     local width, height = source:getDimensions()
     if width < 80 or height < 8 then return nil end
 
-    local ok, ribbon = pcall(G.newCanvas, 64, 8)
+    -- The title font's visible glyphs are not geometrically centered within
+    -- the original tile fragments. A 68px canvas with a 4px transparent left
+    -- pad makes the native centering pass place the visible caption at x=80.
+    local ok, ribbon = pcall(G.newCanvas, 68, 8)
     if not ok or not ribbon then return nil end
 
     local previousCanvas = G.getCanvas()
@@ -36,8 +39,8 @@ return function(mod)
     G.setCanvas(ribbon)
     G.clear(0, 0, 0, 0)
     G.setColor(1, 1, 1, 1)
-    G.draw(source, first, 0, 0)
-    G.draw(source, second, 24, 0)
+    G.draw(source, first, 4, 0)
+    G.draw(source, second, 28, 0)
     G.setCanvas(previousCanvas)
     G.setColor(r, g, b, a)
     return ribbon
