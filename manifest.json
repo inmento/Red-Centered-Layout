@@ -1,0 +1,15 @@
+{
+  "id": "red_centered_layout",
+  "name": "Red Centered Layout",
+  "version": "0.1.0",
+  "entry": "main.lua",
+  "api": 2,
+  "game_version": ">=0.2.19",
+  "category": "UI",
+  "profile": "content",
+  "games": ["red"],
+  "affects_link": false,
+  "permissions": ["engine_internals"],
+  "github": "inmento/Red-Centered-Layout",
+  "description": "Centers the vanilla Red Version title caption and the standard Red overworld player framing without changing save or gameplay data."
+}
